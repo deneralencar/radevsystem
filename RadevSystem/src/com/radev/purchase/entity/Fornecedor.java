@@ -1,4 +1,4 @@
-package com.radev.foundation.entity;
+package com.radev.purchase.entity;
 
 import java.io.Serializable;
 
@@ -13,17 +13,17 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
-@Table(name="cliente")
+@Table(name="fornecedor")
 
-public class Cliente implements Serializable {
+public class Fornecedor implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@SequenceGenerator(name = "CLIENTE_ID", sequenceName = "CLIENTE_SEQ", allocationSize = 1 )  
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "CLIENTE_ID" )  
-    @Column(name = "cliente_id", nullable = false, unique=true )	
-	private int cliente_id;
+	@SequenceGenerator(name = "FORNECEDOR_ID", sequenceName = "FORNECEDOR_SEQ", allocationSize = 1 )  
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "FORNECEDOR_ID" )  
+    @Column(name = "fornecedor_id", nullable = false, unique=true )	
+	private int fornecedor_id;
 	@Column(nullable = false)
 	@Length(max=50)
 	private String nome;
@@ -38,10 +38,10 @@ public class Cliente implements Serializable {
 	private String pessoa;
 	
 	public int getId() {
-		return cliente_id;
+		return fornecedor_id;
 	}
-	public void setId(int cliente_id) {
-		this.cliente_id = cliente_id;
+	public void setId(int fornecedor_id) {
+		this.fornecedor_id = fornecedor_id;
 	}
 	public String getNome() {
 		return nome;

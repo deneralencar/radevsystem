@@ -76,6 +76,9 @@
                                 <th>
                                     RG/Inscr. Estadual
                                 </th>
+                                <th>
+                                	Ações
+                                </th>
                             </tr>
                         </thead>
                         <tbody id="sample_body">
@@ -124,17 +127,46 @@
     function addRow(data){
         var newRow = $("<tr>");
         var cols = "";
+        var idEditar = data[5]+"Editar";
+        var idExcluir = data[6]+"Excluir";
 
         //cols += '<td><input type="checkbox" class="checkboxes" value="1"/></td>';
         cols += '<td>'+data[0]+'</td>';
         cols += '<td>'+data[1]+'</td>';
         cols += '<td>'+data[2]+'</td>';
         cols += '<td>'+data[3]+'</td>';
-        cols += '<td>'+data[4]+'</td></tr>';
+        cols += '<td>'+data[4]+'</td>';
+        cols += '<td><a id="'+idEditar+'" >Editar </a>|<a id="'+idExcluir+'" > Excluir</a></td></tr>';
 
         newRow.append(cols);
         $("#sample_1").append(newRow);
 
+        $("#"+idEditar).on("click",function() {
+            setIdCliente(data[0]);
+        	$("#painel-ajax").load("editarClientes.html");
+        });
+
+        $("#"+idExcluir).on("click",function() {
+            var botao = $(this);
+        	var res = {id : $(this).closest("tr").find("td:nth-child(1)").text()};           
+
+        	$.ajax({
+                url: '/RadevSystem/ClienteServiceDelete', //listarCliente.php',/****
+                type: 'post',
+                dataType: 'json',
+                data: res,
+                success: function (data) {
+					if(data === true){
+						botao.closest('tr').remove();
+	               	}
+                },
+                error: function(e) { 
+                    console.log(e.responseText);
+                }
+            });
+        	
+        });  
+        
         return false;
     }
 
