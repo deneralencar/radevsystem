@@ -45,6 +45,8 @@ public class PedidoCompra implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "fornecedor_id")
 	private Fornecedor fornecedor;
+	@Column(nullable = false)
+	private int moeda;
 	
 	public int getId() {
 		return pedidocompra_id;
@@ -102,10 +104,11 @@ public class PedidoCompra implements Serializable {
 		this.excluido = excluido;
 	}
 	
-	
-	
-	
-
-	
+	public int getMoeda() {
+		return moeda;
+	}
+	public void setMoeda(int moeda) {
+		this.moeda = moeda;
+	}		
 
 }

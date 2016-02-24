@@ -124,14 +124,14 @@
             cols += '<td>'+data[3]+'</td>';
             cols += '<td>'+data[4]+'</td>';
             cols += '<td>'+data[5]+'</td>';
-            cols += '<td><a id="'+idEditar+'" >Editar </a>/<a id="'+idExcluir+'" > Excluir</a></td></tr>';
+            cols += '<td><a id="'+idEditar+'" >Editar </a>|<a id="'+idExcluir+'" > Excluir</a></td></tr>';
 
             newRow.append(cols);
             $("#sample_1").append(newRow);
 
             $("#"+idEditar).on("click",function() {
                 setIdPedido(data[0]);
-            	$("#painel-ajax").load("editarPedidosCompras.html");
+            	$("#painel-ajax").load("editarPedidoCompra.html");
             });
 
             $("#"+idExcluir).on("click",function() {

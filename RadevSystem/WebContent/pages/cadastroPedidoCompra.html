@@ -120,15 +120,35 @@
 								<span class="input-group-addon plus-size input-circle-left bold">
 									Condição Pgto. </span> <select class="form-control" id="condicaopgto">
 									<option value="0" selected></option>
-									<option value="1">Cheque</option>
-									<option value="2">Cartão</option>
-									<option value="3">Dinheiro</option>
+									<option value="1">A Vista</option>
+									<option value="2">30 dias</option>
+									<option value="3">45 dias</option>
+									<option value="4">60 dias</option>
+									<option value="5">90 dias</option>
+									<option value="6">30+60 dias</option>
 								</select>
 							</div>
-
 						</div>
+						
 					</div>
 
+					<div class="row">
+
+						<div class="col-md-6">
+							<div class="input-group">
+								<span class="input-group-addon plus-size input-circle-left bold">
+									Moeda </span> <select class="form-control" id="moeda">
+									<option value="1" selected></option>
+									<option value="1">Real</option>
+									<option value="2">Dólar</option>
+									<option value="3">Euro</option>
+									<option value="4">Libra</option>
+								</select>
+							</div>
+						</div>
+						
+					</div>
+					
 					<table class="table table-striped table-bordered table-hover"
 						id="sample_1">
 						<thead>
@@ -222,6 +242,7 @@
                 	cabecalhoArray.push($("#valorpedido").val());
                 	cabecalhoArray.push($("#compradoroption").val());
                 	cabecalhoArray.push($("#condicaopgto").val());
+                	cabecalhoArray.push($("#moeda").val());
           
                     var itensArray = tableToarray();
 
@@ -276,11 +297,13 @@
                  }
             });
 
-            peencherCampos();
-            $("#datadopedido").mask("99/99/9999");
+            preencherCampos();
+            
+			$("#datadopedido").mask("99/99/9999");            
+            
         });
 
-        function peencherCampos(){
+        function preencherCampos(){
             preencheNumeropedido();
             preencheFornecedor();
             preencheComprador();				
@@ -514,6 +537,7 @@
 			var endE 		= $("#endentrega").val();
 			var comprador 	= $("#compradoroption").val();
 			var condPgto 	= $("#condicaopgto").val();
+			var moeda 		= $("#moeda").val();
 			
 			if(fornecedor == ""){
 				errorMsg("Selecione um fornecedor.");
@@ -521,6 +545,8 @@
 				errorMsg("Selecione um comprador.");
 			}else if(condPgto == 0){
 				errorMsg("Selecione a condição de pagamento.");
+			}else if(moeda == 0){
+				errorMsg("Selecione a moeda.");				
 			}else if(data == ""){
 				errorMsg("Digite a data do pedido.");
 			}else if(endC == ""){

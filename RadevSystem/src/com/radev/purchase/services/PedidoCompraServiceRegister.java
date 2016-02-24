@@ -2,16 +2,11 @@ package com.radev.purchase.services;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.radev.foundation.services.DTOPedido;
 
 /**
  * Servlet implementation class UserService
@@ -39,17 +34,18 @@ public class PedidoCompraServiceRegister extends HttpServlet {
 		String codigo[] = stringToList(request.getParameter("codigo"));
 		String qtd[] = stringToList(request.getParameter("qtd"));	
 
-		 DTOPedidoCompra pedido = new DTOPedidoCompra();
+		DTOPedidoCompra pedido = new DTOPedidoCompra();
 		  
-		  PrintWriter out = response.getWriter(); 
-		  try {			  
-			out.print(pedido.registerpedido(cabecalho[1], cabecalho[0], cabecalho[5], cabecalho[4], cabecalho[2], cabecalho[3], cabecalho[6], item, codigo, qtd));
-		  
-		  } catch
-		  (Exception e) { // TODO Auto-generated catch block
-			  System.out.print(e);
-			  e.printStackTrace(); 
-		  } out.close();		 
+		PrintWriter out = response.getWriter();
+		
+		try {			  
+			out.print(pedido.registerpedido(cabecalho[1], cabecalho[0], cabecalho[5], cabecalho[4], cabecalho[2], cabecalho[3], cabecalho[6], cabecalho[7], item, codigo, qtd));	  
+		} catch (Exception e) {
+			System.out.print(e);
+			e.printStackTrace(); 
+		} 
+		
+		out.close();		 
 
 	}
 	
