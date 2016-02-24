@@ -2,11 +2,6 @@ package com.radev.purchase.controller.impl;
 
 import java.util.List;
 
-import org.primefaces.json.JSONObject;
-
-import com.radev.foundation.controller.VendedorController;
-import com.radev.foundation.entity.Vendedor;
-import com.radev.foundation.persistence.VendedorDAO;
 import com.radev.purchase.controller.CompradorController;
 import com.radev.purchase.entity.Comprador;
 import com.radev.purchase.persistence.CompradorDAO;

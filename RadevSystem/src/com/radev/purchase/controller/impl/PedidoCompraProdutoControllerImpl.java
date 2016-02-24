@@ -4,31 +4,39 @@ import java.util.List;
 
 import com.radev.purchase.controller.PedidoCompraProdutoController;
 import com.radev.purchase.entity.PedidoCompraProduto;
+import com.radev.purchase.persistence.PedidoCompraProdutoDAO;
 
 public class PedidoCompraProdutoControllerImpl implements PedidoCompraProdutoController {
 
+	private PedidoCompraProdutoDAO pedidoCompraProdutoDAO = new PedidoCompraProdutoDAO();
+	
 	@Override
-	public PedidoCompraProduto findByLogin(String login) {
-		// TODO Auto-generated method stub
-		return null;
+	public PedidoCompraProduto findById(int id) {
+		return pedidoCompraProdutoDAO.findById(id);
 	}
 
 	@Override
-	public void persist(PedidoCompraProduto fornecedor) throws Exception {
-		// TODO Auto-generated method stub
-
+	public void persist(PedidoCompraProduto pedidoCompraProduto) throws Exception {
+		try {
+			pedidoCompraProdutoDAO.persist(pedidoCompraProduto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public List<PedidoCompraProduto> listAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return pedidoCompraProdutoDAO.listAll();
 	}
 
 	@Override
 	public boolean excluir(int p) {
-		// TODO Auto-generated method stub
-		return false;
+		return pedidoCompraProdutoDAO.excluir(p);
+	}
+
+	@Override
+	public List<PedidoCompraProduto> list(int id) {
+		return pedidoCompraProdutoDAO.list(id);
 	}
 
 }

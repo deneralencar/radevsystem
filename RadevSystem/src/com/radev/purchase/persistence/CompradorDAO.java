@@ -7,14 +7,12 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import com.radev.foundation.entity.Vendedor;
 import com.radev.foundation.persistence.manager.DAOManagerImpl;
 import com.radev.foundation.persistence.manager.DBEntityManager;
 import com.radev.purchase.entity.Comprador;
 
 public class CompradorDAO extends DAOManagerImpl<Object> {
 	
-	private Comprador comprador;
 	private EntityManager em = DBEntityManager.getConnection();
 	private List<Comprador> compradores = new ArrayList<Comprador>();
 	

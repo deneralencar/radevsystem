@@ -135,7 +135,6 @@
 		<url-pattern>/PedidoServiceLiberar</url-pattern>
 	</servlet-mapping>
 	
-	
 	<servlet>
 		<display-name>PedidoServiceEditItens</display-name>
 		<servlet-name>PedidoServiceEditItens</servlet-name>
@@ -155,8 +154,7 @@
 		<servlet-name>PedidoServiceGetItens</servlet-name>
 		<url-pattern>/PedidoServiceGetItens</url-pattern>
 	</servlet-mapping>
-	
-	
+		
 	<servlet>
 		<display-name>PedidoServiceGetPedido</display-name>
 		<servlet-name>PedidoServiceGetPedido</servlet-name>
@@ -167,9 +165,84 @@
 		<url-pattern>/PedidoServiceGetPedido</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<display-name>FornecedorServiceList</display-name>
+		<servlet-name>FornecedorServiceList</servlet-name>
+		<servlet-class>com.radev.purchase.services.FornecedorServiceList</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FornecedorServiceList</servlet-name>
+		<url-pattern>/FornecedorServiceList</url-pattern>
+	</servlet-mapping>
 
+	<servlet>
+		<display-name>CompradorServiceList</display-name>
+		<servlet-name>CompradorServiceList</servlet-name>
+		<servlet-class>com.radev.purchase.services.CompradorServiceList</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CompradorServiceList</servlet-name>
+		<url-pattern>/CompradorServiceList</url-pattern>
+	</servlet-mapping>
 
+	<servlet>
+		<display-name>PedidoCompraServiceRegister</display-name>
+		<servlet-name>PedidoCompraServiceRegister</servlet-name>
+		<servlet-class>com.radev.purchase.services.PedidoCompraServiceRegister</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PedidoCompraServiceRegister</servlet-name>
+		<url-pattern>/PedidoCompraServiceRegister</url-pattern>
+	</servlet-mapping>
 
+	<servlet>
+		<display-name>PedidoCompraServiceList</display-name>
+		<servlet-name>PedidoCompraServiceList</servlet-name>
+		<servlet-class>com.radev.purchase.services.PedidoCompraServiceList</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PedidoCompraServiceList</servlet-name>
+		<url-pattern>/PedidoCompraServiceList</url-pattern>
+	</servlet-mapping>
 
+	<servlet>
+		<display-name>PedidoCompraServiceDelete</display-name>
+		<servlet-name>PedidoCompraServiceDelete</servlet-name>
+		<servlet-class>com.radev.purchase.services.PedidoCompraServiceDelete</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PedidoCompraServiceDelete</servlet-name>
+		<url-pattern>/PedidoCompraServiceDelete</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<display-name>PedidoCompraServiceEditItens</display-name>
+		<servlet-name>PedidoCompraServiceEditItens</servlet-name>
+		<servlet-class>com.radev.purchase.services.PedidoCompraServiceEditItens</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PedidoCompraServiceEditItens</servlet-name>
+		<url-pattern>/PedidoCompraServiceEditItens</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<display-name>PedidoCompraServiceGetItens</display-name>
+		<servlet-name>PedidoCompraServiceGetItens</servlet-name>
+		<servlet-class>com.radev.purchase.services.PedidoCompraServiceGetItens</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PedidoCompraServiceGetItens</servlet-name>
+		<url-pattern>/PedidoCompraServiceGetItens</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<display-name>PedidoCompraServiceGetPedido</display-name>
+		<servlet-name>PedidoCompraServiceGetPedido</servlet-name>
+		<servlet-class>com.radev.purchase.services.PedidoCompraServiceGetPedido</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PedidoCompraServiceGetPedido</servlet-name>
+		<url-pattern>/PedidoCompraServiceGetPedido</url-pattern>
+	</servlet-mapping>
 
 </web-app>

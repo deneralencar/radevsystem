@@ -32,7 +32,7 @@ public class DTOPedidoCompra {
 				jo.put("nomefornecedor", u.getFornecedor().getNome());
 				jo.put("cpf", u.getFornecedor().getCpf());
 				jo.put("data", u.getData());
-				jo.put("valor", u.getValor());
+				jo.put("valor", u.getValor());				
 				
 				ja.put(jo);
 			}
@@ -79,12 +79,14 @@ public class DTOPedidoCompra {
 			JSONObject jo = new JSONObject();
 			jo.put("id", u.getId());
 			jo.put("fornecedor", u.getFornecedor().getId());
-			jo.put("vendedor", u.getComprador());
+			jo.put("comprador", u.getComprador());
 			jo.put("cpf", u.getFornecedor().getCpf());
 			jo.put("data", u.getData());
 			jo.put("endc", u.getEndC());
 			jo.put("ende", u.getEndE());
 			jo.put("pgto", u.getCondPgto());
+			jo.put("valor", u.getValor());
+			jo.put("moeda", u.getMoeda());
 			
 			ja.put(jo);
 			
@@ -120,10 +122,9 @@ public class DTOPedidoCompra {
 		}
 		
 		public boolean registerpedido(String data, String fornecedor, String comprador, String valor, String endC, String endE, String condPgto,
-										String item[], String produto[], String qtd[]) throws Exception{
+										String moeda, String item[], String produto[], String qtd[]) throws Exception{
 			PedidoCompra pedidoCompra = new PedidoCompra();
 			Fornecedor f = new Fornecedor();
-			//pedido.setId(Integer.parseInt(id));
 			pedidoCompra.setData(data);
 			f.setId(Integer.parseInt(fornecedor));
 			pedidoCompra.setClientes(f);
@@ -132,12 +133,12 @@ public class DTOPedidoCompra {
 			pedidoCompra.setEndC(endC);
 			pedidoCompra.setEndE(endE);
 			pedidoCompra.setCondPgto(condPgto);
+			pedidoCompra.setMoeda(Integer.parseInt(moeda));
 			
 			PedidoCompraController pedidoCompraController = new PedidoCompraControllerImpl();
 			pedidoCompraController.persist(pedidoCompra);
 			int lastID = pedidoCompraController.getLastPedido();
-			
-			
+					
 			for(int i = 0; i < item.length; i++){
 			
 				PedidoCompraProduto pedidoCompraProduto = new PedidoCompraProduto();

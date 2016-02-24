@@ -10,8 +10,8 @@ public class PedidoCompraControllerImpl implements PedidoCompraController {
 	
 	private PedidoCompraDAO pedidoCompraDAO = new PedidoCompraDAO();
 	
-	public PedidoCompra findById(int login) {
-		return pedidoCompraDAO.findById(login);
+	public PedidoCompra findById(int id) {
+		return pedidoCompraDAO.findById(id);
 	}
 	
 	public void persist(PedidoCompra pedidoCompra) throws Exception {

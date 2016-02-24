@@ -24,9 +24,8 @@ public class PedidoCompraDAO extends DAOManagerImpl<Object> {
 
 	public PedidoCompra findById(int pedido) {
 
-		Query q = em
-				.createQuery("select p from PedidoCompra p where p.pedidocompra_id = :pPedido ");
-		q.setParameter("pLogin", pedido);
+		Query q = em.createQuery("select p from PedidoCompra p where p.pedidocompra_id = :pPedido ");
+		q.setParameter("pPedido", pedido);
 
 		try {
 			return (PedidoCompra)q.getSingleResult();
@@ -70,8 +69,6 @@ public class PedidoCompraDAO extends DAOManagerImpl<Object> {
 		}
 
 		return false;
-		// q.setParameter("id", id);
-		// q.executeUpdate();
 	}
 	
 	public boolean liberar(int id) {
@@ -100,8 +97,7 @@ public class PedidoCompraDAO extends DAOManagerImpl<Object> {
 	public List<PedidoCompra> listAll() {
 
 		try {
-			Query query = em
-					.createQuery("select p from PedidoCompra p inner join p.fornecedor c where p.excluido != 1 order by p.pedido_id");
+			Query query = em.createQuery("select p from PedidoCompra p inner join p.fornecedor c where p.excluido != 1 order by p.pedidocompra_id");
 
 			this.pedidos = Collections.checkedList(query.getResultList(),
 					PedidoCompra.class);
