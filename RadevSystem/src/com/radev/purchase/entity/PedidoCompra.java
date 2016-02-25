@@ -12,7 +12,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.Length;
 
 import com.radev.foundation.entity.Transportadora;
@@ -49,12 +48,9 @@ public class PedidoCompra implements Serializable {
 	private Fornecedor fornecedor;
 	@Column(nullable = false)
 	private int moeda;
-<<<<<<< HEAD
 	@ManyToOne
 	@JoinColumn(name = "transportadora_id")
 	private Transportadora transportadora;
-=======
->>>>>>> branch 'master' of https://github.com/deneralencar/radevsystem.git
 	
 	public int getLiberar() {
 		return liberar;
