@@ -88,7 +88,10 @@ public class DTOPedidoCompra {
 			jo.put("pgto", u.getCondPgto());
 			jo.put("valor", u.getValor());
 			jo.put("moeda", u.getMoeda());
+<<<<<<< HEAD
 			jo.put("transportadora", u.getTransportadora());
+=======
+>>>>>>> branch 'master' of https://github.com/deneralencar/radevsystem.git
 			
 			ja.put(jo);
 			
@@ -124,7 +127,11 @@ public class DTOPedidoCompra {
 		}
 		
 		public boolean registerpedido(String data, String fornecedor, String comprador, String valor, String endC, String endE, String condPgto,
+<<<<<<< HEAD
 										String moeda, String transportadora, String item[], String produto[], String qtd[]) throws Exception{
+=======
+										String moeda, String item[], String produto[], String qtd[]) throws Exception{
+>>>>>>> branch 'master' of https://github.com/deneralencar/radevsystem.git
 			PedidoCompra pedidoCompra = new PedidoCompra();
 			Fornecedor f = new Fornecedor();
 			pedidoCompra.setData(data);
@@ -136,9 +143,12 @@ public class DTOPedidoCompra {
 			pedidoCompra.setEndE(endE);
 			pedidoCompra.setCondPgto(condPgto);
 			pedidoCompra.setMoeda(Integer.parseInt(moeda));
+<<<<<<< HEAD
 			Transportadora t = new Transportadora();
 			t.setId(Integer.parseInt(transportadora));
 			pedidoCompra.setTransportadora(t);
+=======
+>>>>>>> branch 'master' of https://github.com/deneralencar/radevsystem.git
 			
 			PedidoCompraController pedidoCompraController = new PedidoCompraControllerImpl();
 			pedidoCompraController.persist(pedidoCompra);

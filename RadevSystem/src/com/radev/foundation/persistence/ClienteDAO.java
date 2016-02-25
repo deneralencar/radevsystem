@@ -42,7 +42,7 @@ public class ClienteDAO extends DAOManagerImpl<Object> {
 	public List<Cliente> listAll() {
 		
 		try {
-			Query query = em.createQuery("select u from Cliente u");
+			Query query = em.createQuery("select c from Cliente c");
 			this.clientes = Collections.checkedList(query.getResultList(), Cliente.class);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -49,9 +49,12 @@ public class PedidoCompra implements Serializable {
 	private Fornecedor fornecedor;
 	@Column(nullable = false)
 	private int moeda;
+<<<<<<< HEAD
 	@ManyToOne
 	@JoinColumn(name = "transportadora_id")
 	private Transportadora transportadora;
+=======
+>>>>>>> branch 'master' of https://github.com/deneralencar/radevsystem.git
 	
 	public int getLiberar() {
 		return liberar;
