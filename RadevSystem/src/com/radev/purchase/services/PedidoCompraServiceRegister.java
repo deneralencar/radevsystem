@@ -39,7 +39,7 @@ public class PedidoCompraServiceRegister extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		try {			  
-			out.print(pedido.registerpedido(cabecalho[1], cabecalho[0], cabecalho[5], cabecalho[4], cabecalho[2], cabecalho[3], cabecalho[6], cabecalho[7], item, codigo, qtd));	  
+			out.print(pedido.registerpedido(cabecalho[1], cabecalho[0], cabecalho[5], cabecalho[4], cabecalho[2], cabecalho[3], cabecalho[6], cabecalho[7], cabecalho[8], item, codigo, qtd));	  
 		} catch (Exception e) {
 			System.out.print(e);
 			e.printStackTrace(); 

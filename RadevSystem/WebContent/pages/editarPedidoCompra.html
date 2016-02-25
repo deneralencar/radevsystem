@@ -126,11 +126,20 @@
 							<div class="input-group">
 								<span class="input-group-addon plus-size input-circle-left bold">
 									Moeda </span> <select class="form-control" id="moeda">
-									<option value="1" selected></option>
+									<option value="0" selected></option>
 									<option value="1">Real</option>
 									<option value="2">Dólar</option>
 									<option value="3">Euro</option>
 									<option value="4">Libra</option>
+								</select>
+							</div>
+						</div>
+						
+						<div class="col-md-6">
+							<div class="input-group">
+								<span class="input-group-addon plus-size input-circle-left bold">
+									Transportadora </span> <select class="form-control" id="transportadora">
+									<option value="0" selected></option>
 								</select>
 							</div>
 						</div>
@@ -265,6 +274,7 @@
 
         function preencherCampos(){
         	preencheComprador();
+        	preencheTransportadora();
             preencheDados(getIdPedido());		
         }
 
@@ -320,6 +330,7 @@
 	               	$("#endentrega").val(object.ende);
 	               	$("#condicaopgto").val(object.pgto);
 	               	$("#moeda").val(object.moeda);
+	               	$("#transportadora").val(object.transportadora);
              	
 		     	},
 		        error: function(e) { 
@@ -380,6 +391,23 @@
   		     });
          }
 
+        function preencheTransportadora(){
+        	 $.ajax({
+ 		            url: '/RadevSystem/TransportadoraServiceList', //listarCliente.php',
+ 		            type: 'post',
+ 		            dataType: 'json',
+ 		            success: function (data) {
+ 		            	$.each(data.transportadoralist, function(i, object) {
+ 							var array = [object.id, object.nome]
+ 							addSelectOption(array, "transportadora");
+ 		            	});             	
+ 		            },
+ 		            error: function(e) { 
+ 		                console.log(e.responseText);
+ 		            }
+ 		     });
+        }
+        
         //Janela Modal
         $(document).ready(function(){
 		    $("a[rel=modal]").click( function(ev){

@@ -54,6 +54,26 @@
 		<servlet-name>ClienteServiceRegister</servlet-name>
 		<url-pattern>/ClienteServiceRegister</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<display-name>ClienteServiceAltera</display-name>
+		<servlet-name>ClienteServiceAltera</servlet-name>
+		<servlet-class>com.radev.foundation.services.ClienteServiceAltera</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ClienteServiceAltera</servlet-name>
+		<url-pattern>/ClienteServiceAltera</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<display-name>ClienteServiceDelete</display-name>
+		<servlet-name>ClienteServiceDelete</servlet-name>
+		<servlet-class>com.radev.foundation.services.ClienteServiceDelete</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ClienteServiceDelete</servlet-name>
+		<url-pattern>/ClienteServiceDelete</url-pattern>
+	</servlet-mapping>
 	
 	<servlet>
 		<display-name>ProdutoServiceList</display-name>
@@ -243,6 +263,16 @@
 	<servlet-mapping>
 		<servlet-name>PedidoCompraServiceGetPedido</servlet-name>
 		<url-pattern>/PedidoCompraServiceGetPedido</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<display-name>TransportadoraServiceList</display-name>
+		<servlet-name>TransportadoraServiceList</servlet-name>
+		<servlet-class>com.radev.foundation.services.TransportadoraServiceList</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TransportadoraServiceList</servlet-name>
+		<url-pattern>/TransportadoraServiceList</url-pattern>
 	</servlet-mapping>
 
 </web-app>

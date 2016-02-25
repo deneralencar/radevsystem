@@ -6,6 +6,7 @@ import org.primefaces.json.JSONObject;
 
 import com.radev.foundation.controller.ClienteController;
 import com.radev.foundation.entity.Cliente;
+import com.radev.foundation.entity.Pedido;
 import com.radev.foundation.persistence.ClienteDAO;
 
 public class ClienteControllerImpl implements ClienteController {
@@ -29,4 +30,15 @@ public class ClienteControllerImpl implements ClienteController {
 	}
 	
 
+	@Override
+	public boolean excluir(int id) {
+		return clienteDAO.excluir(id);
+	}
+
+	@Override
+	public Cliente findById(int id) {
+		return clienteDAO.findByID(id);
+	}
+	
+	
 }

@@ -36,6 +36,19 @@ public class Cliente implements Serializable {
 	private String rg;
 	@Length(max=50)
 	private String pessoa;
+	@Length(max=50)
+	private String endereco;
+	@Length(max=2)
+	private String estado;
+	@Length(max=50)
+	private String cidade;
+	@Length(max=3)
+	private String ddd;
+	@Length(max=10)
+	private String fone;
+	@Length(max=12)
+	private String limitecredito;
+	
 	
 	public int getId() {
 		return cliente_id;
@@ -72,6 +85,42 @@ public class Cliente implements Serializable {
 	}
 	public void setPessoa(String pessoa) {
 		this.pessoa = pessoa;
+	}
+	public String getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+	public String getEstado() {
+		return estado;
+	}
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+	public String getCidade() {
+		return cidade;
+	}
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+	public String getFone() {
+		return fone;
+	}
+	public void setFone(String fone) {
+		this.fone = fone;
+	}
+	public String getDdd() {
+		return ddd;
+	}
+	public void setDdd(String ddd) {
+		this.ddd = ddd;
+	}
+	public String getLimitecredito() {
+		return limitecredito;
+	}
+	public void setLimitecredito(String limitecredito) {
+		this.limitecredito = limitecredito;
 	}
 
 	

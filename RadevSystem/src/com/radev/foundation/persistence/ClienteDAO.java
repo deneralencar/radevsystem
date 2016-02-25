@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import com.radev.foundation.entity.Cliente;
+import com.radev.foundation.entity.Pedido;
 import com.radev.foundation.persistence.manager.DAOManagerImpl;
 import com.radev.foundation.persistence.manager.DBEntityManager;
 
@@ -41,7 +42,7 @@ public class ClienteDAO extends DAOManagerImpl<Object> {
 	public List<Cliente> listAll() {
 		
 		try {
-			Query query = em.createQuery("select c from Cliente c");
+			Query query = em.createQuery("select u from Cliente u");
 			this.clientes = Collections.checkedList(query.getResultList(), Cliente.class);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -49,6 +50,39 @@ public class ClienteDAO extends DAOManagerImpl<Object> {
 		
 		return this.clientes;
 		
+	}
+
+	public boolean excluir(int id) {
+		try {
+			em.getTransaction().begin();
+			
+			String query = "delete from Cliente where id_cliente ="+ id;
+			Query q = em.createNativeQuery(query);
+			q.executeUpdate();
+			
+			em.getTransaction().commit();
+			return true;
+		} catch (Exception e) {
+			em.getTransaction().rollback(); // desfaz transacao se ocorrer erro
+											// ao persitir
+		} finally {
+			if (em.getTransaction().isActive()) {
+				em.getTransaction().commit();
+			}
+		}
+
+		return false;
+	}
+
+	public Cliente findByID(int id) {
+		Query q = em.createQuery("select u from Cliente u where u.cliente_id = :pId ");
+		q.setParameter("pId", id);
+
+		try {
+			return (Cliente) q.getSingleResult();
+		} catch (Exception e) {
+			return null;
+		}
 	}
 	
 }

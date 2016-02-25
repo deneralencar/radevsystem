@@ -148,7 +148,7 @@
 			<ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
 				<li class="start ">
 					<a id="home">
-					<i class="icon-home"></i>
+					<i class="home"></i>
 					<span class="title">Início</span>
 					</a>
 				</li>
@@ -166,13 +166,7 @@
 						</li>
 					</ul>
 				</li>
-                                <li class="start ">
-					<a >
-					<i class="icon-bag"></i>
-					<span class="title">Estoque</span>
-					</a>
-				</li>
-                                <li class="start ">
+                    <li class="start ">
 					<a >
 					<i class="icon-basket"></i>
 					<span class="title">Compras</span>
@@ -204,11 +198,19 @@
 						</li>
 					</ul>
 				</li>
-                                <li class="start ">
-					<a  >
-					<i class="icon-book-open"></i>
-					<span class="title">Produção</span>
+				
+                <li class="start ">
+					<a >
+					<i class="icon-bag"></i>
+					<span class="title">Estoque</span>
 					</a>
+					<ul class="sub-menu">
+						<li id="inventarioEstoque">
+							<a >
+							<i class="icon-book-open"></i>
+							Inventário de Estoque</a>
+						</li>
+					</ul>					
 				</li>
 				
 			</ul>
@@ -297,6 +299,9 @@ $(document).ready(function () {
     $( "#aprovacao" ).click(function() {       
         $("#painel-ajax").load("aprovacaoPedido.html");
     });
+    $( "#inventarioEstoque" ).click(function() {  	
+        $("#painel-ajax").load("inventarioEstoque.html");
+    });    
 });
             
 </script>

@@ -6,6 +6,7 @@ import org.primefaces.json.JSONArray;
 import org.primefaces.json.JSONException;
 import org.primefaces.json.JSONObject;
 
+import com.radev.foundation.entity.Transportadora;
 import com.radev.purchase.controller.PedidoCompraController;
 import com.radev.purchase.controller.PedidoCompraProdutoController;
 import com.radev.purchase.controller.impl.PedidoCompraControllerImpl;
@@ -87,6 +88,7 @@ public class DTOPedidoCompra {
 			jo.put("pgto", u.getCondPgto());
 			jo.put("valor", u.getValor());
 			jo.put("moeda", u.getMoeda());
+			jo.put("transportadora", u.getTransportadora());
 			
 			ja.put(jo);
 			
@@ -122,7 +124,7 @@ public class DTOPedidoCompra {
 		}
 		
 		public boolean registerpedido(String data, String fornecedor, String comprador, String valor, String endC, String endE, String condPgto,
-										String moeda, String item[], String produto[], String qtd[]) throws Exception{
+										String moeda, String transportadora, String item[], String produto[], String qtd[]) throws Exception{
 			PedidoCompra pedidoCompra = new PedidoCompra();
 			Fornecedor f = new Fornecedor();
 			pedidoCompra.setData(data);
@@ -134,6 +136,9 @@ public class DTOPedidoCompra {
 			pedidoCompra.setEndE(endE);
 			pedidoCompra.setCondPgto(condPgto);
 			pedidoCompra.setMoeda(Integer.parseInt(moeda));
+			Transportadora t = new Transportadora();
+			t.setId(Integer.parseInt(transportadora));
+			pedidoCompra.setTransportadora(t);
 			
 			PedidoCompraController pedidoCompraController = new PedidoCompraControllerImpl();
 			pedidoCompraController.persist(pedidoCompra);

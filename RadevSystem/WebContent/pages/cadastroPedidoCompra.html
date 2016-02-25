@@ -112,7 +112,6 @@
 									<option value="0" selected></option>
 								</select>
 							</div>
-
 						</div>
 
 						<div class="col-md-6">
@@ -143,6 +142,15 @@
 									<option value="2">Dólar</option>
 									<option value="3">Euro</option>
 									<option value="4">Libra</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="input-group">
+								<span class="input-group-addon plus-size input-circle-left bold">
+									Transportadora </span> <select class="form-control" id="transportadora">
+									<option value="0" selected></option>
 								</select>
 							</div>
 						</div>
@@ -243,6 +251,7 @@
                 	cabecalhoArray.push($("#compradoroption").val());
                 	cabecalhoArray.push($("#condicaopgto").val());
                 	cabecalhoArray.push($("#moeda").val());
+                	cabecalhoArray.push($("#transportadora").val());
           
                     var itensArray = tableToarray();
 
@@ -307,6 +316,7 @@
             preencheNumeropedido();
             preencheFornecedor();
             preencheComprador();				
+            preencheTransportadora();
         }
 
         function preencheNumeropedido(){
@@ -358,6 +368,23 @@
    		            }
    		     });
           }
+
+        function preencheTransportadora(){
+         	 $.ajax({
+  		            url: '/RadevSystem/TransportadoraServiceList', //listarCliente.php',
+  		            type: 'post',
+  		            dataType: 'json',
+  		            success: function (data) {
+  		            	$.each(data.transportadoralist, function(i, object) {
+  							var array = [object.id, object.nome]
+  							addSelectOption(array, "transportadora");
+  		            	});             	
+  		            },
+  		            error: function(e) { 
+  		                console.log(e.responseText);
+  		            }
+  		     });
+         }
         
         //Janela Modal
         $(document).ready(function(){
@@ -538,6 +565,7 @@
 			var comprador 	= $("#compradoroption").val();
 			var condPgto 	= $("#condicaopgto").val();
 			var moeda 		= $("#moeda").val();
+			var moeda 		= $("#transportadora").val();
 			
 			if(fornecedor == ""){
 				errorMsg("Selecione um fornecedor.");
@@ -546,7 +574,9 @@
 			}else if(condPgto == 0){
 				errorMsg("Selecione a condição de pagamento.");
 			}else if(moeda == 0){
-				errorMsg("Selecione a moeda.");				
+				errorMsg("Selecione a moeda.");
+			}else if(comprador == 0){
+				errorMsg("Selecione uma transportadora.");				
 			}else if(data == ""){
 				errorMsg("Digite a data do pedido.");
 			}else if(endC == ""){

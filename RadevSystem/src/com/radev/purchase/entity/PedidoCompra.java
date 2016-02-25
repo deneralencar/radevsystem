@@ -15,6 +15,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.Length;
 
+import com.radev.foundation.entity.Transportadora;
+
 @Entity
 @Table(name="pedidocompra")
 
@@ -47,7 +49,25 @@ public class PedidoCompra implements Serializable {
 	private Fornecedor fornecedor;
 	@Column(nullable = false)
 	private int moeda;
+	@ManyToOne
+	@JoinColumn(name = "transportadora_id")
+	private Transportadora transportadora;
 	
+	public int getLiberar() {
+		return liberar;
+	}
+	public void setLiberar(int liberar) {
+		this.liberar = liberar;
+	}
+	public Transportadora getTransportadora() {
+		return transportadora;
+	}
+	public void setTransportadora(Transportadora transportadora) {
+		this.transportadora = transportadora;
+	}
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
+	}
 	public int getId() {
 		return pedidocompra_id;
 	}

@@ -94,6 +94,81 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Endereço<span class="required">
+                                        * </span>
+                                </label>
+                                <div class="col-md-4">
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input type="text" class="form-control" id="endereco"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Estado<span class="required">
+                                        * </span>
+                                </label>
+                                <div class="col-md-4">
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input type="text" class="form-control" id="estado"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Cidade<span class="required">
+                                        * </span>
+                                </label>
+                                <div class="col-md-4">
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input type="text" class="form-control" id="cidade"/>
+                                    </div>
+                                </div>
+                            </div>
+	
+                            
+                            <div class="form-group">
+                                <label class="control-label col-md-3">DDD<span class="required">
+                                        * </span>
+                                </label>
+                                <div class="col-md-4">
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input type="text" class="form-control" id="ddd"/>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Fone<span class="required">
+                                        * </span>
+                                </label>
+                                <div class="col-md-4">
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input type="tel" class="form-control" id="fone"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Limite Crédito<span class="required">
+                                        * </span>
+                                </label>
+                                <div class="col-md-4">
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input type="number" class="form-control" id="limitecredito"/>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
                         </div>
                         <div class="form-actions">
                             <div class="row">
@@ -117,7 +192,6 @@
     jQuery(document).ready(function () {        
         FormValidation.init();
         $("#cpf").mask("999.999.999-99");
-        $("#rg").mask("99.999.999-9");
     });
 
     $("#salvar").click(function () {
@@ -134,11 +208,9 @@
 
 	$("#person_type").change(function (){
 		if($("#person_type").val() == "F"){
-			$("#cpf").mask("999.999.999-99");~
-			$("#rg").mask("99.999.999-9");
+			$("#cpf").mask("999.999.999-99");
 		}else{
 			$("#cpf").mask("99.999.999/9999-99");
-			$("#rg").mask("999.999.999.999");
 		}
 		
 		
@@ -149,9 +221,21 @@
         var email = $('#email').val();
         var cpf = $('#cpf').val();
         var rg = $('#rg').val();
+        var endereco = $('#endereco').val();
+        var estado = $('#estado').val();
+        var cidade = $('#cidade').val();
+        var ddd = $('#ddd').val();
+        var fone = $('#fone').val();
+        var limitecredito = $('#limitecredito').val();
         if( nome.length == 0 ||
             email.length == 0||
             cpf.length == 0||
+            endereco == 0||
+            estado == 0||
+            cidade == 0||
+            ddd == 0||
+            fone == 0||
+            limitecredito == 0||
             rg.length == 0){
                 $('#alert').fadeIn(500);
                 setTimeout( "$('#alert').fadeOut(1500);",3000);
@@ -165,7 +249,13 @@
             nome : $('#nome').val(),
             email : $('#email').val(),
             cpf : $('#cpf').val(),
-            rg : $('#rg').val()
+            rg : $('#rg').val(),
+            endereco : $('#endereco').val(),
+	        estado : $('#estado').val(),
+	        cidade : $('#cidade').val(),
+	        ddd : $('#ddd').val(),
+	        fone : $('#fone').val(),
+	        limitecredito : $('#limitecredito').val()            
         }
         $.ajax({
             url: '/RadevSystem/ClienteServiceRegister',
